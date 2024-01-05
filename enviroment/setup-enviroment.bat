@@ -27,6 +27,4 @@ setx PATH "%ANACONDAPATH%;%PATH%"
 echo Anaconda path added to system PATH.
 
 echo All installations complete!
-
-ENDLOCAL
 pause
