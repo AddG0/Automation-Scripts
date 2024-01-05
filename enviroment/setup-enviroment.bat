@@ -8,7 +8,7 @@ echo Installing Essentials...
 choco install vscode git docker-desktop -y
 
 echo Installing JDK 17...
-choco install openjdk17 -y
+choco install openjdk17 maven -y
 
 echo Install awscli...
 choco install awscli -y
@@ -21,6 +21,10 @@ choco install vidmerger ffmpeg -y
 
 echo Installing Anaconda3...
 choco install anaconda3 -y
+
+set "ANACONDAPATH=C:\tools\Anaconda3\Scripts"
+setx PATH "%ANACONDAPATH%;%PATH%"
+echo Anaconda path added to system PATH.
 
 echo All installations complete!
 
