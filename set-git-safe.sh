@@ -4,20 +4,20 @@
 scriptDir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # Set the relative path to your 'Code' directory
-codeFolderPath="$scriptDir/../../Code"
+driveFolderPath="$scriptDir/../../"
 
 # Convert to absolute path
-codeFolderPath="$(cd "$codeFolderPath" && pwd)"
+driveFolderPath="$(cd "$driveFolderPath" && pwd)"
 
 # Check if the directory exists
-if [ ! -d "$codeFolderPath" ]; then
-    echo "Failed to navigate to '$codeFolderPath'. Please check the path and try again."
+if [ ! -d "$driveFolderPath" ]; then
+    echo "Failed to navigate to '$driveFolderPath'. Please check the path and try again."
     exit 1
 fi
 
 # Recursively find and add directories containing a .git folder to Git safe.directory
 echo "Adding directories containing a .git folder to Git safe.directory..."
-find "$codeFolderPath" -type d -name .git | while read -r gitDir; do
+find "$driveFolderPath" -type d -name .git | while read -r gitDir; do
     repoDir=$(dirname "$gitDir")
     git config --global --add safe.directory "$repoDir"
 done

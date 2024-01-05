@@ -1,5 +1,5 @@
 @echo off
-call ./scripts/install-chocolatey.bat
+call ./install-chocolatey.bat
 
 :: Install Steam
 echo Installing Steam...

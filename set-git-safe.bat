@@ -4,18 +4,18 @@ SETLOCAL ENABLEDELAYEDEXPANSION
 :: Get the full path of the directory the script is in
 SET "scriptDir=%~dp0"
 
-:: Set the relative path to your 'Code' directory
-SET "codeFolderPath=%scriptDir%..\..\Code"
+:: Set the relative path to your 'Drives' directory
+SET "driveFolderPath=%scriptDir%..\..\"
 
 :: Convert to absolute path and remove trailing backslash
-FOR /F "delims=" %%i IN ("%codeFolderPath%") DO SET "codeFolderPath=%%~fi"
+FOR /F "delims=" %%i IN ("%driveFolderPath%") DO SET "driveFolderPath=%%~fi"
 
-:: Navigate to the 'Code' directory
-cd /d %codeFolderPath%
+:: Navigate to the 'Drives' directory
+cd /d %driveFolderPath%
 
 :: Check if the directory change was successful
 IF %ERRORLEVEL% NEQ 0 (
-    echo Failed to navigate to '%codeFolderPath%'. Please check the path and try again.
+    echo Failed to navigate to '%driveFolderPath%'. Please check the path and try again.
     goto EndScript
 )
 
