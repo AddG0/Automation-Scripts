@@ -1,7 +1,17 @@
 #!/bin/bash
 
 sudo -v
-chsh -s /bin/bash
+
+# Check the current default shell
+echo $SHELL
+
+# If it's not /bin/bash, change it to /bin/bash
+if [ "$SHELL" != "/bin/bash" ]; then
+    chsh -s /bin/bash
+    echo "Shell changed to bash."
+else
+    echo "Default shell is already bash."
+fi
 
 SCRIPT_DIR=$(dirname "$0")
 
