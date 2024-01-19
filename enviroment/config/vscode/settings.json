@@ -1,0 +1,212 @@
+{
+  "java.help.firstView": "gettingStarted",
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "files.exclude": {
+    "**/.classpath": true,
+    "**/.project": true,
+    "**/.settings": true,
+    "**/.factorypath": true
+  },
+  "diffEditor.codeLens": true,
+  "explorer.confirmDragAndDrop": false,
+  "redhat.telemetry.enabled": true,
+  "files.autoSave": "afterDelay",
+  "editor.foldingImportsByDefault": true,
+  "editor.accessibilitySupport": "off",
+  "editor.inlineSuggest.enabled": true,
+  "git.enableSmartCommit": true,
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": true,
+    "markdown": true,
+    "scminput": false,
+    "yaml": true,
+    "java": true
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "sonarlint.rules": {
+    "java:S3776": {
+      "level": "off"
+    },
+    "java:S135": {
+      "level": "off"
+    },
+    "java:S131": {
+      "level": "off"
+    },
+    "java:S1192": {
+      "level": "off"
+    },
+    "java:S106": {
+      "level": "off"
+    },
+    "java:S1854": {
+      "level": "off"
+    },
+    "java:S2095": {
+      "level": "off"
+    },
+    "java:S120": {
+      "level": "off"
+    },
+    "java:S107": {
+      "level": "off"
+    },
+    "java:S3740": {
+      "level": "off"
+    },
+    "java:S2386": {
+      "level": "off"
+    },
+    "java:S1301": {
+      "level": "off"
+    },
+    "java:S125": {
+      "level": "off"
+    },
+    "java:S2119": {
+      "level": "off"
+    },
+    "java:S4042": {
+      "level": "off"
+    },
+    "java:S3010": {
+      "level": "off"
+    },
+    "java:S1444": {
+      "level": "off"
+    },
+    "java:S1104": {
+      "level": "off"
+    },
+    "java:S3457": {
+      "level": "off"
+    },
+    "java:S115": {
+      "level": "off"
+    },
+    "java:S116": {
+      "level": "off"
+    },
+    "java:S1141": {
+      "level": "off"
+    },
+    "java:S1117": {
+      "level": "off"
+    },
+    "java:S2189": {
+      "level": "off"
+    },
+    "java:S2142": {
+      "level": "off"
+    },
+    "java:S4144": {
+      "level": "off"
+    },
+    "java:S1119": {
+      "level": "off"
+    },
+    "java:S2387": {
+      "level": "off"
+    },
+    "java:S1948": {
+      "level": "off"
+    },
+    "java:S127": {
+      "level": "off"
+    },
+    "java:S6541": {
+      "level": "off"
+    },
+    "java:S1700": {
+      "level": "off"
+    },
+    "java:S5411": {
+      "level": "off"
+    },
+    "java:S1452": {
+      "level": "off"
+    },
+    "java:S2864": {
+      "level": "off"
+    },
+    "python:S100": {
+      "level": "off"
+    },
+    "python:S117": {
+      "level": "off"
+    }
+  },
+  "sonarlint.analyzerProperties": {},
+  "editor.largeFileOptimizations": false,
+  "workbench.editorAssociations": {
+    "*.sql": "default"
+  },
+  "workbench.colorTheme": "Default Dark+",
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[python]": {
+    "editor.formatOnType": true,
+    "editor.defaultFormatter": "ms-python.autopep8"
+  },
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnType": true,
+  "git.openRepositoryInParentFolders": "always",
+  "java.configuration.maven.globalSettings": "",
+  "java.configuration.maven.userSettings": "",
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "maven.terminal.useJavaHome": true,
+  "rsp-ui.enableStartServerOnActivation": [
+    {
+      "id": "redhat.vscode-community-server-connector",
+      "name": "Community Server Connector",
+      "startOnActivation": true
+    }
+  ],
+  "files.associations": {
+    "*.sql": "jinja-sql",
+    "*.yml": "jinja-yaml"
+  },
+  "[jinja-sql]": {
+    "editor.defaultFormatter": "henriblancke.vscode-dbt-formatter"
+  },
+  "terminal.integrated.profiles.windows": {
+    "PowerShell": {
+      "source": "PowerShell",
+      "icon": "terminal-powershell",
+      "args": ["-ExecutionPolicy", "Bypass"]
+    }
+  },
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "cmake.configureOnOpen": true,
+  "eslint.rules.customizations": [{}],
+  "editor.codeActionsOnSave": {},
+  "window.zoomLevel": 2,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "gitlens.graph.minimap.enabled": false,
+  "gitlens.ai.experimental.provider": "openai",
+  "gitlens.ai.experimental.openai.model": "gpt-3.5-turbo-1106",
+  "auto-rename-tag.activationOnLanguage": ["*"],
+  "java.jdt.ls.java.home": "c:\\Program Files\\Eclipse Adoptium\\jdk-17.0.9.9-hotspot",
+  "squarl.bookmarks": [
+    {
+      "name": "Regex 101",
+      "path": "https://regex101.com/",
+      "description": "Regex helper and maker with descriptions",
+      "type": "link",
+      "groupId": "usefull-links"
+    }
+  ],
+  "squarl.groups": [
+    {
+      "id": "usefull-links",
+      "name": "Usefull links"
+    }
+  ]
+}  

@@ -13,6 +13,9 @@ if which brew >/dev/null; then
     brew upgrade
 else
     install_homebrew
+    (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> ~/.bash_profile
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+    source ~/.bash_profile
 fi
 
 # Check again if Homebrew is successfully installed
