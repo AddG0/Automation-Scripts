@@ -23,6 +23,9 @@ source ~/.bash_profile
 echo "Installing script dependancies..."
 brew install fswatch jq
 
+echo "Installing db connection tools..."
+brew install mysql-client
+
 echo "Installing Essentials..."
 brew install --cask docker visual-studio-code
 brew install git
