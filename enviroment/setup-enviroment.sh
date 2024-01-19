@@ -24,7 +24,7 @@ echo "Installing script dependancies..."
 brew install fswatch jq
 
 echo "Installing Essentials..."
-brew install --cask docker visual-studio-code caffeine
+brew install --cask docker visual-studio-code
 brew install git
 
 echo "Installing ngrok.."
