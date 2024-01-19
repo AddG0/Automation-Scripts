@@ -28,7 +28,6 @@ brew install mysql-client
 
 echo "Installing Essentials..."
 brew install --cask docker visual-studio-code
-brew install git
 
 echo "Installing ngrok.."
 brew install ngrok/ngrok/ngrok
@@ -39,5 +38,20 @@ echo 'export PATH=/opt/homebrew/anaconda3/bin:$PATH' >> ~/.bash_profile
 source ~/.bash_profile
 
 conda install conda-forge::openjdk=17 conda-forge::maven python pip
+
+# Check if Git is installed
+if ! type git > /dev/null 2>&1; then
+    echo "Installing Git..."
+    brew install git
+    
+    # Set Git global configuration
+    echo "Setting up Git global configuration..."
+    read -p "Enter your Git global username: " git_username
+    read -p "Enter your Git global email: " git_email
+    git config --global user.name "$git_username"
+    git config --global user.email "$git_email"
+else
+    echo "Git is already installed."
+fi
 
 echo "Installation completed."
