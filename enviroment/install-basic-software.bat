@@ -14,7 +14,7 @@ echo Installing Spotify...
 choco install spotify -y
 
 echo Installing Notion...
-conda install conda-forge::notion-client
+choco install notion
 
 echo Essential applications installation complete.
 pause

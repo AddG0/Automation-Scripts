@@ -1,25 +1,24 @@
 #!/bin/bash
 
-# Get the full path of the directory the script is in
-scriptDir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+for DEV in /sys/block/sd*; do
+    if readlink "$DEV/device" | grep -q usb; then
+        DEV=$(basename "$DEV")
 
-# Set the relative path to your 'Code' directory
-driveFolderPath="$scriptDir/../../"
+        # Check if the device is mounted
+        MOUNT_POINT=$(df -H | grep "$DEV" | awk '{print $NF}' | head -n 1)
+        if [ -n "$MOUNT_POINT" ]; then
+            echo "$DEV is a mounted USB device at $MOUNT_POINT"
 
-# Convert to absolute path
-driveFolderPath="$(cd "$driveFolderPath" && pwd)"
-
-# Check if the directory exists
-if [ ! -d "$driveFolderPath" ]; then
-    echo "Failed to navigate to '$driveFolderPath'. Please check the path and try again."
-    exit 1
-fi
-
-# Recursively find and add directories containing a .git folder to Git safe.directory
-echo "Adding directories containing a .git folder to Git safe.directory..."
-find "$driveFolderPath" -type d -name .git | while read -r gitDir; do
-    repoDir=$(dirname "$gitDir")
-    git config --global --add safe.directory "$repoDir"
+            # Perform git operation on the mount point
+            echo "Adding directories containing a .git folder to Git safe.directory..."
+            find "$MOUNT_POINT" -type d -name .git | while read -r gitDir; do
+                repoDir=$(dirname "$gitDir")
+                git config --global --add safe.directory "$repoDir"
+            done
+        else
+            echo "$DEV is a USB device but not mounted"
+        fi
+    fi
 done
 
-echo "Operation completed."
+exit 0
