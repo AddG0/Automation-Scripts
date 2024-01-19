@@ -26,5 +26,7 @@ set "ANACONDAPATH=C:\tools\Anaconda3\Scripts"
 setx PATH "%ANACONDAPATH%;%PATH%"
 echo Anaconda path added to system PATH.
 
+conda install conda-forge::openjdk=17 conda-forge::maven python pip
+
 echo All installations complete!
 pause
