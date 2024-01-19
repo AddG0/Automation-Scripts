@@ -1,15 +1,14 @@
 @echo off
-call ./install-chocolatey.bat
+cd /d %~dp0
 
-:: Install Steam
+echo Installing Chocolatey...
+call install-chocolatey.bat
+
 echo Installing Steam...
 choco install steam -y
 
-:: Install Riot Client
 echo Installing Riot Client...
 choco install riot -y
-
-:: Add other gaming applications here...
 
 echo Gaming applications installation complete.
 pause
