@@ -184,6 +184,7 @@
     }
   },
   "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "terminal.integrated.defaultProfile.osx": "bash",
   "cmake.configureOnOpen": true,
   "eslint.rules.customizations": [{}],
   "editor.codeActionsOnSave": {},
@@ -209,4 +210,4 @@
       "name": "Usefull links"
     }
   ]
-}  
+}
