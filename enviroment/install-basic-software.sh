@@ -1,7 +1,9 @@
 #!/bin/bash
 
+SCRIPT_DIR=$(dirname "$0")
+
 echo "Running Homebrew installation script..."
-bash "$/install-brew.sh"
+bash "$SCRIPT_DIR/install-brew.sh"
 
 echo "Installing google-chrome..."
 brew install --cask google-chrome
