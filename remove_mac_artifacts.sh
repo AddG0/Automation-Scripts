@@ -1,18 +1,14 @@
 #!/bin/bash
 
-# Check if an argument was provided
-if [ $# -eq 0 ]; then
-    echo "Usage: $0 /path/to/monitor"
-    exit 1
-fi
-
-# Directory to monitor - taken from the first script argument
-MONITOR_DIR="$1"
+# Set the directory to monitor - use the first script argument or the current directory if no argument is provided
+MONITOR_DIR="${1:-$(pwd)}"
 
 # Function to remove ._ files
 remove_dot_underscore_files() {
     find "$MONITOR_DIR" -name '._*' -exec rm {} \;
 }
+
+echo "Monitoring $MONITOR_DIR for ._* files..."
 
 # Using fswatch to monitor the directory
 fswatch -o "$MONITOR_DIR" | while read; do
