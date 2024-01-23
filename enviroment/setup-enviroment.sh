@@ -37,7 +37,7 @@ brew install --cask anaconda
 echo 'export PATH=/opt/homebrew/anaconda3/bin:$PATH' >> ~/.bash_profile
 source ~/.bash_profile
 
-conda install conda-forge::openjdk=17 conda-forge::maven python pip
+conda install conda-forge::openjdk=17 conda-forge::maven python pip conda-forge::nodejs
 
 # Check if Git is installed
 if ! type git > /dev/null 2>&1; then
