@@ -27,7 +27,7 @@ echo "Installing db connection tools..."
 brew install mysql-client
 
 echo "Installing Essentials..."
-brew install --cask docker visual-studio-code
+brew install --cask docker visual-studio-code postman
 
 echo "Installing ngrok.."
 brew install ngrok/ngrok/ngrok
