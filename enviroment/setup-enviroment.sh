@@ -29,6 +29,9 @@ brew install mysql-client
 echo "Installing Essentials..."
 brew install --cask docker visual-studio-code postman
 
+echo "Installing Java..."
+brew install openjdk@17 maven
+
 echo "Installing ngrok.."
 brew install ngrok/ngrok/ngrok
 
@@ -37,7 +40,7 @@ brew install --cask anaconda
 echo 'export PATH=/opt/homebrew/anaconda3/bin:$PATH' >> ~/.bash_profile
 source ~/.bash_profile
 
-conda install conda-forge::openjdk=17 conda-forge::maven python pip conda-forge::nodejs
+conda install python pip conda-forge::nodejs
 
 # Check if Git is installed
 if ! type git > /dev/null 2>&1; then

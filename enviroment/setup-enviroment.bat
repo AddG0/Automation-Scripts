@@ -16,6 +16,9 @@ choco install mongodb-shell mysql-cli -y
 echo Installing media tools...
 choco install vidmerger ffmpeg -y
 
+echo Installing java...
+choco install openjdk --version=17.0.2 maven
+
 echo Installing Anaconda3...
 choco install anaconda3 -y
 
@@ -23,7 +26,7 @@ set "ANACONDAPATH=C:\tools\Anaconda3\Scripts"
 setx PATH "%ANACONDAPATH%;%PATH%"
 echo Anaconda path added to system PATH.
 
-conda install conda-forge::openjdk=17 conda-forge::maven python pip conda-forge::nodejs
+conda install python pip conda-forge::nodejs
 
 git --version >nul 2>&1
 IF %ERRORLEVEL% NEQ 0 (
