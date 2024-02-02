@@ -5,4 +5,12 @@ MONITOR_DIR="${1:-$(pwd)}"
 
 echo "Monitoring $MONITOR_DIR for ._* files..." 
 
-fswatch -0 "$MONITOR_DIR" | xargs -0 -I {} bash -c 'if [[ "{}" =~ /\._[^/]*$ ]]; then rm "{}"; fi'
+fswatch -0 "$MONITOR_DIR" | while IFS= read -r -d '' file; do
+    if [[ "$file" =~ /\._[^/]*$ ]]; then
+        if [ -f "$file" ]; then
+            rm "$file"
+        else
+            echo "File does not exist or is not a regular file: $file"
+        fi
+    fi
+done
