@@ -19,6 +19,9 @@ echo "Running Homebrew installation script..."
 bash "$SCRIPT_DIR/install-brew.sh"
 source ~/.bash_profile
 
+echo "Installing Git..."
+brew install git
+
 # For monitoring file changes
 echo "Installing script dependancies..."
 brew install fswatch jq
@@ -30,31 +33,31 @@ echo "Installing Essentials..."
 brew install --cask docker visual-studio-code postman
 
 echo "Installing Java..."
-brew install openjdk@17 maven
+curl -s "https://get.sdkman.io" | bash
+source ~/.bash_profile
+sdk install java
+sdk install maven
+
+echo "Installing bash..."
+brew install bash
+
+echo "Installing pkl..."
+bash "$SCRIPT_DIR/install-pkl.sh"
 
 echo "Installing ngrok.."
 brew install ngrok/ngrok/ngrok
 
 echo "Installing anaconda..."
 brew install --cask anaconda
-echo 'export PATH=/opt/homebrew/anaconda3/bin:$PATH' >> ~/.bash_profile
-source ~/.bash_profile
+# Check if the PATH export statement is already in .bash_profile
+if ! grep -q 'export PATH=/opt/homebrew/anaconda3/bin:$PATH' ~/.bash_profile; then
+    echo 'Adding Anaconda to PATH in .bash_profile...'
+    echo 'export PATH=/opt/homebrew/anaconda3/bin:$PATH' >> ~/.bash_profile
+    source ~/.bash_profile
+else
+    echo 'Anaconda PATH export already in .bash_profile'
+fi
 
 conda install python pip conda-forge::nodejs
-
-# Check if Git is installed
-if ! type git > /dev/null 2>&1; then
-    echo "Installing Git..."
-    brew install git
-    
-    # Set Git global configuration
-    echo "Setting up Git global configuration..."
-    read -p "Enter your Git global username: " git_username
-    read -p "Enter your Git global email: " git_email
-    git config --global user.name "$git_username"
-    git config --global user.email "$git_email"
-else
-    echo "Git is already installed."
-fi
 
 echo "Installation completed."
