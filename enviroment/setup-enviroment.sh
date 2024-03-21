@@ -2,22 +2,14 @@
 
 sudo -v
 
-# Check the current default shell
-echo $SHELL
-
-# If it's not /bin/bash, change it to /bin/bash
-if [ "$SHELL" != "/bin/bash" ]; then
-    chsh -s /bin/bash
-    echo "Shell changed to bash."
-else
-    echo "Default shell is already bash."
-fi
-
 SCRIPT_DIR=$(dirname "$0")
 
 echo "Running Homebrew installation script..."
 bash "$SCRIPT_DIR/install-brew.sh"
-source ~/.bash_profile
+source ~/.zshrc
+
+echo "Installing Git..."
+brew install git
 
 # For monitoring file changes
 echo "Installing script dependancies..."
@@ -30,31 +22,31 @@ echo "Installing Essentials..."
 brew install --cask docker visual-studio-code postman
 
 echo "Installing Java..."
-brew install openjdk@17 maven
+curl -s "https://get.sdkman.io" | bash
+source ~/.zshrc
+sdk install java
+sdk install maven
+
+echo "Installing bash..."
+brew install bash
+
+echo "Installing pkl..."
+bash "$SCRIPT_DIR/install-pkl.sh"
 
 echo "Installing ngrok.."
 brew install ngrok/ngrok/ngrok
 
 echo "Installing anaconda..."
 brew install --cask anaconda
-echo 'export PATH=/opt/homebrew/anaconda3/bin:$PATH' >> ~/.bash_profile
-source ~/.bash_profile
+# Check if the PATH export statement is already in .zshrc
+if ! grep -q 'export PATH=/opt/homebrew/anaconda3/bin:$PATH' ~/.zshrc; then
+    echo 'Adding Anaconda to PATH in .zshrc...'
+    echo 'export PATH=/opt/homebrew/anaconda3/bin:$PATH' >> ~/.zshrc
+    source ~/.zshrc
+else
+    echo 'Anaconda PATH export already in .zshrc'
+fi
 
 conda install python pip conda-forge::nodejs
-
-# Check if Git is installed
-if ! type git > /dev/null 2>&1; then
-    echo "Installing Git..."
-    brew install git
-    
-    # Set Git global configuration
-    echo "Setting up Git global configuration..."
-    read -p "Enter your Git global username: " git_username
-    read -p "Enter your Git global email: " git_email
-    git config --global user.name "$git_username"
-    git config --global user.email "$git_email"
-else
-    echo "Git is already installed."
-fi
 
 echo "Installation completed."
